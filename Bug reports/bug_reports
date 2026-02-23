@@ -1,23 +1,48 @@
-{
-  "id": "BUG-200",
-  "title": "Login button becomes unresponsive after entering valid credentials",
-  "severity": "Medium",
-  "priority": "P2",
-  "environment": {
-    "os": "Windows 11",
-    "browser": "Chrome 122.0",
-    "app_version": "1.8.0"
+[
+  {
+    "id": "BUG-200",
+    "title": "Login button becomes unresponsive after entering valid credentials",
+    "severity": "Medium",
+    "priority": "P2",
+    "environment": {
+      "os": "Windows 11",
+      "browser": "Chrome 122.0",
+      "app_version": "1.8.0"
+    },
+    "preconditions": "User account exists in the system",
+    "steps_to_reproduce": [
+      "Open the login page",
+      "Enter a valid email",
+      "Enter a valid password",
+      "Click the 'Login' button"
+    ],
+    "expected_result": "The user is successfully logged in and redirected to the dashboard",
+    "actual_result": "The login button becomes unresponsive and no action occurs",
+    "reproducibility": "100%",
+    "attachments": [],
+    "notes": "Issue occurs only in Chrome; works correctly in Firefox"
   },
-  "preconditions": "User account exists in the system",
-  "steps_to_reproduce": [
-    "Open the login page",
-    "Enter a valid email",
-    "Enter a valid password",
-    "Click the 'Login' button"
-  ],
-  "expected_result": "The user is successfully logged in and redirected to the dashboard",
-  "actual_result": "The login button becomes unresponsive and no action occurs",
-  "reproducibility": "100%",
-  "attachments": [],
-  "notes": "Issue occurs only in Chrome; works correctly in Firefox"
-}
+  {
+    "id": "BUG-201",
+    "title": "Search field does not return results when using uppercase letters",
+    "severity": "Low",
+    "priority": "P3",
+    "environment": {
+      "os": "macOS Ventura",
+      "browser": "Safari 17.0",
+      "app_version": "1.8.0"
+    },
+    "preconditions": "Search index is up to date; user is logged in",
+    "steps_to_reproduce": [
+      "Navigate to the main page",
+      "Locate the search field",
+      "Enter a valid product name using uppercase letters (e.g., 'LAPTOP')",
+      "Press Enter or click the search icon"
+    ],
+    "expected_result": "Search results should be displayed regardless of text case",
+    "actual_result": "No results are returned when the query is typed in uppercase",
+    "reproducibility": "80%",
+    "attachments": [],
+    "notes": "Lowercase queries work correctly; issue appears only with uppercase input"
+  }
+]
