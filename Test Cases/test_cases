@@ -65,31 +65,31 @@
       }
     ]
   },
-{
-  "id": "TC-303",
-  "title": "Verify that a user with limited permissions cannot access restricted admin sections",
-  "preconditions": "User account exists with 'Viewer' role only; user is logged in",
-  "steps": [
-    {
-      "step": "Navigate to the main dashboard after login",
-      "expected_result": "Dashboard loads successfully and displays only modules allowed for 'Viewer' role"
-    },
-    {
-      "step": "Attempt to open the 'User Management' section via the sidebar menu",
-      "expected_result": "Access is blocked; system displays an error message such as 'You do not have permission to access this section'"
-    },
-    {
-      "step": "Try to access the 'User Management' page directly by entering the URL in the browser",
-      "expected_result": "System prevents access and redirects the user to an error page or back to the dashboard"
-    },
-    {
-      "step": "Open the browser developer tools and inspect the network request for the restricted page",
-      "expected_result": "The server returns a 403 Forbidden or similar authorization error"
-    },
-    {
-      "step": "Verify that no restricted data is visible in the page source or network responses",
-      "expected_result": "No sensitive or admin‑level data is exposed; all restricted endpoints return authorization errors"
-    }
-  ]
-}
+  {
+    "id": "TC-303",
+    "title": "Verify that a user with limited permissions cannot access restricted admin sections",
+    "preconditions": "User account exists with 'Viewer' role only; user is logged in",
+    "steps": [
+      {
+        "step": "Navigate to the main dashboard after login",
+        "expected_result": "Dashboard loads successfully and displays only modules allowed for 'Viewer' role"
+      },
+      {
+        "step": "Attempt to open the 'User Management' section via the sidebar menu",
+        "expected_result": "Access is blocked; system displays an error message such as 'You do not have permission to access this section'"
+      },
+      {
+        "step": "Try to access the 'User Management' page directly by entering the URL in the browser",
+        "expected_result": "System prevents access and redirects the user to an error page or back to the dashboard"
+      },
+      {
+        "step": "Open the browser developer tools and inspect the network request for the restricted page",
+        "expected_result": "The server returns a 403 Forbidden or similar authorization error"
+      },
+      {
+        "step": "Verify that no restricted data is visible in the page source or network responses",
+        "expected_result": "No sensitive or admin-level data is exposed; all restricted endpoints return authorization errors"
+      }
+    ]
+  }
 ]
