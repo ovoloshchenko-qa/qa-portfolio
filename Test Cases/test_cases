@@ -1,0 +1,95 @@
+[
+  {
+    "id": "TC-101",
+    "title": "Verify successful checkout with a registered user using a saved credit card",
+    "preconditions": "User is logged in; user has at least one saved credit card; cart contains at least one product",
+    "steps": [
+      {
+        "step": "Open the cart page",
+        "expected_result": "Cart page loads successfully and displays all items with correct prices"
+      },
+      {
+        "step": "Click the 'Proceed to Checkout' button",
+        "expected_result": "Checkout page opens and displays shipping address, payment methods, and order summary"
+      },
+      {
+        "step": "Select a saved credit card as the payment method",
+        "expected_result": "Selected credit card is highlighted and marked as active"
+      },
+      {
+        "step": "Verify that the total price includes taxes and shipping fees",
+        "expected_result": "Total amount updates correctly according to system tax and shipping rules"
+      },
+      {
+        "step": "Click the 'Place Order' button",
+        "expected_result": "Order is successfully created and user is redirected to the order confirmation page"
+      },
+      {
+        "step": "Verify that the order appears in the user's order history",
+        "expected_result": "New order is listed with correct order ID, status, and total amount"
+      }
+    ]
+  },
+  {
+    "id": "TC-102",
+    "title": "Verify checkout fails when payment authorization is declined by the bank",
+    "preconditions": "User is logged in; cart contains at least one product; test credit card is configured to simulate 'authorization declined'",
+    "steps": [
+      {
+        "step": "Open the cart page",
+        "expected_result": "Cart page loads successfully and displays all items"
+      },
+      {
+        "step": "Click the 'Proceed to Checkout' button",
+        "expected_result": "Checkout page opens with payment and shipping sections visible"
+      },
+      {
+        "step": "Enter credit card details that trigger a declined authorization",
+        "expected_result": "System accepts the input and shows the card as selected"
+      },
+      {
+        "step": "Click the 'Place Order' button",
+        "expected_result": "System sends authorization request to the payment gateway"
+      },
+      {
+        "step": "Wait for the payment gateway response",
+        "expected_result": "System receives 'authorization declined' response"
+      },
+      {
+        "step": "Verify the error message displayed to the user",
+        "expected_result": "User sees a clear error message such as 'Payment authorization failed. Please try another payment method.'"
+      },
+      {
+        "step": "Verify that the order is NOT created",
+        "expected_result": "No new order appears in the user's order history"
+      }
+    ]
+  },
+  {
+    "id": "TC-303",
+    "title": "Verify that a user with limited permissions cannot access restricted admin sections",
+    "preconditions": "User account exists with 'Viewer' role only; user is logged in",
+    "steps": [
+      {
+        "step": "Navigate to the main dashboard after login",
+        "expected_result": "Dashboard loads successfully and displays only modules allowed for 'Viewer' role"
+      },
+      {
+        "step": "Attempt to open the 'User Management' section via the sidebar menu",
+        "expected_result": "Access is blocked; system displays an error message such as 'You do not have permission to access this section'"
+      },
+      {
+        "step": "Try to access the 'User Management' page directly by entering the URL in the browser",
+        "expected_result": "System prevents access and redirects the user to an error page or back to the dashboard"
+      },
+      {
+        "step": "Open the browser developer tools and inspect the network request for the restricted page",
+        "expected_result": "The server returns a 403 Forbidden or similar authorization error"
+      },
+      {
+        "step": "Verify that no restricted data is visible in the page source or network responses",
+        "expected_result": "No sensitive or admin-level data is exposed; all restricted endpoints return authorization errors"
+      }
+    ]
+  }
+]
